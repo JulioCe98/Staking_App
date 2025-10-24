@@ -38,8 +38,9 @@ All features were tested using **Foundry**.
 
 | Function | Visibility | Description |
 |-----------|-------------|-------------|
-| `receive()` | `external payable onlyOwner` | Allows the contract owner to receive Ether if needed. |
+| `receive()` | `external payable onlyOwner` | Allows the contract  to receive Ether only for the owner |
 | `depositTokens(uint amount_)` | `public validAmount(amount_)` | Allows users to stake tokens. The amount must be valid and greater than zero. |
+| `withdrawTokens(uint amount_)` | `public enoughBalance(amount_)` | Allows users to reclaim their tokens. The user must have enough balance. |
 | `changeStakingPeriod(uint newStakingPeriod_)` | `public onlyOwner` | Allows the owner to change the staking period duration. |
 | `claimReward()` | `public hasBalance` | Allows users to claim their staking rewards, but only after the required staking time has passed. |
 | `getMyStakingBalance()` | `public view returns (uint amount)` | Returns the amount of tokens the user has currently staked. |
